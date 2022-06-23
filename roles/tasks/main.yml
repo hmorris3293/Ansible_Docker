@@ -25,8 +25,11 @@
       repo: deb https://download.docker.com/linux/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} stable
       state: present
  
-  - name: Update apt and install docker-ce
+   - name: install docker dependencies
     apt:
-      name: docker-ce
+      pkg:
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io
       state: latest
       update_cache: true
