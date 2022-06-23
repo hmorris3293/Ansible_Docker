@@ -19,6 +19,7 @@
     apt_key:
       url: https://download.docker.com/linux/debian/gpg
       state: present
+      when: ansible_os_family == 'Debian'
 
   - name: Add Docker Repository
     apt_repository:
